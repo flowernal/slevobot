@@ -54,7 +54,7 @@ class Dluhy(commands.Cog):
             zprava += f"🤑 {format_debt(d)}\n"
             
         zprava += "\n"
-        zprava += f"Celkový dluh dluh:\n"
+        zprava += f"Celkový dluh:\n"
         total = sum_by_currency(active)
         for cur, total_amount in total.items():
             zprava += f"🔥✍ {cur}: {total_amount:.2f}\n"
