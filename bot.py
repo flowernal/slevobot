@@ -16,6 +16,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
+    await bot.load_extension('cogs.dluhy')
     print(f'Bot {bot.user} byl úspěšně spuštěn!')
 
 @bot.command()
@@ -86,7 +87,7 @@ async def rizky(ctx):
             return
 
         # Sestavení zprávy
-        zprava = f"🐔 **Kuřecí prsní řízky – nalezeno {len(vysledky)} akci(í):**\n\n"
+        zprava = f"🐔 **Kuřecí prsní řízky - nalezeno {len(vysledky)} akci(í):**\n\n"
         for i, v in enumerate(vysledky, 1):
             zprava += (
                 f"**{i}. {v['obchod']}**\n"
@@ -105,6 +106,6 @@ async def rizky(ctx):
 
     except Exception as e:
         await ctx.send(f"Došlo k chybě při stahování dat: {e}")
-
+  
 # Spuštění bota
 bot.run(os.getenv("DISCORD_TOKEN"))
